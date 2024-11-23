@@ -160,6 +160,7 @@ const CreatePodcast = () => {
         toast({
           title: "Please generate audio and image",
         });
+        
         setIsSubmitting(false);
         return;
       }

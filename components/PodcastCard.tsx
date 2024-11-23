@@ -18,7 +18,7 @@ function PodcastCard({
   return (
     <div className='cursor-pointer ' onClick={handleViews}>
       <figure className='flex flex-col gap-3 '>
-    <Image src={imgURL} alt={title} width={174} height={174}
+    <Image src={imgURL || '/default-image.png'} alt={title} width={174} height={174}
      className='aspect-square h-fit w-full rounded-xl 2xl:size-[200px]'
     />
       </figure>

@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { Manrope } from "next/font/google";
 import "./globals.css";
 import ConvexClerkProvider from "./provider/ConvexClerkProvider";
+import AudioProvider from "./provider/AudioProvider";
  
+const manrope = Manrope({subsets: ["latin"]})
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -29,14 +32,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+    <ConvexClerkProvider>
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <ConvexClerkProvider>
-        {children}
-        </ConvexClerkProvider>
-      </body>
+      <AudioProvider>
+      <body className={`${manrope.className}`}>
+              {children}
+          </body>
+      </AudioProvider>
     </html>
+    </ConvexClerkProvider>
+
   );
 }

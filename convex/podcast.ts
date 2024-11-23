@@ -131,20 +131,22 @@ export const getPodcastByAuthorId = query({
     return { podcasts, listeners: totalListeners };
   },
 });
+ 
 
-// this query will get the podcast by the search query.
 export const getPodcastBySearch = query({
   args: {
-    search: v.string(),
+    search: v.optional(v.string()), // Make search parameter optional
   },
   handler: async (ctx, args) => {
-    if (args.search === "") {
+    const search = args.search || ""; // Use an empty string as the default value
+
+    if (search === "") {
       return await ctx.db.query("podcasts").order("desc").collect();
     }
 
     const authorSearch = await ctx.db
       .query("podcasts")
-      .withSearchIndex("search_author", (q) => q.search("author", args.search))
+      .withSearchIndex("search_author", (q) => q.search("author", search))
       .take(10);
 
     if (authorSearch.length > 0) {
@@ -154,7 +156,7 @@ export const getPodcastBySearch = query({
     const titleSearch = await ctx.db
       .query("podcasts")
       .withSearchIndex("search_title", (q) =>
-        q.search("podcastTitle", args.search)
+        q.search("podcastTitle", search)
       )
       .take(10);
 
@@ -165,8 +167,8 @@ export const getPodcastBySearch = query({
     return await ctx.db
       .query("podcasts")
       .withSearchIndex("search_body", (q) =>
-        q.search("podcastDescription", args.search)
-    )
+        q.search("podcastDescription", search)
+      )
       .take(10);
   },
 });

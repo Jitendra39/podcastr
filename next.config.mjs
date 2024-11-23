@@ -18,6 +18,14 @@ const nextConfig = {
         protocol: "https",
         hostname: "notable-viper-311.convex.cloud",
       },
+      {
+        protocol: "https",
+        hostname: "sleek-capybara-771.convex.cloud",
+      },
+      {
+        protocol: "https",
+        hostname: "img.clerk.com",
+      },
     ],
   },
 };
