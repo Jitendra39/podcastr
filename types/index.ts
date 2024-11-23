@@ -129,7 +129,7 @@ export interface CarouselProps {
 }
 
 export interface ProfileCardProps {
-  podcastData: ProfilePodcastProps;
+  podcastData: ProfilePodcastProps ;
   imageUrl: string;
   userFirstName: string;
 }
