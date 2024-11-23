@@ -41,24 +41,25 @@ Ensure you have the following installed on your machine:
 1. Clone the repository
    ```sh
    git clone https://github.com/Jitendra39/podcastr.git
-   ```sh
+   
 2. Navigate to the project directory
 ```sh 
 cd podcastr
-```sh
+
 ```
 3. Install dependencies
 ```sh
 npm install
-```sh
+
 ```
 4. Start the development server
 ```sh
 npm run dev
-``sh
+
 
 ```
 Contact
+
 Jitendra - [jeetendrachoudhari213@gmail.com]
 
 Project Link: https://github.com/Jitendra39/podcastr
