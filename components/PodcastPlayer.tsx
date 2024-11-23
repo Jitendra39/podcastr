@@ -18,12 +18,14 @@ const PodcastPlayer = () => {
   const { audio } = useAudio();
 
   const togglePlayPause = () => {
-    if (audioRef.current?.paused) {
-      audioRef.current?.play();
-      setIsPlaying(true);
-    } else {
-      audioRef.current?.pause();
-      setIsPlaying(false);
+    if (audioRef.current) {
+      if (audioRef.current.paused) {
+        audioRef.current.play();
+        setIsPlaying(true);
+      } else {
+        audioRef.current.pause();
+        setIsPlaying(false);
+      }
     }
   };
 
@@ -116,6 +118,7 @@ const PodcastPlayer = () => {
         <div className="flex items-center gap-4 max-md:hidden">
           <Link href={`/podcast/${audio?.podcastId}`}>
             <Image
+              // eslint-disable-next-line @typescript-eslint/no-non-null-asserted-optional-chain
               src={audio?.imageUrl! || "/images/player1.png"}
               width={64}
               height={64}

@@ -1,5 +1,5 @@
 "use client"
-import { SignedIn, SignedOut, UserButton, useUser } from '@clerk/nextjs'
+import { SignedIn, UserButton, useUser } from '@clerk/nextjs'
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react'
@@ -7,7 +7,6 @@ import Header from './Header';
 import Carousel from './Carousel';
 import { useQuery } from 'convex/react';
 import { api } from '@/convex/_generated/api';
-import { Button } from './ui/button';
 import { useRouter } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import { useAudio } from '@/app/provider/AudioProvider';

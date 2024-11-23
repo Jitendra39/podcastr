@@ -68,8 +68,12 @@ export interface GeneratePodcastProps {
   voicePrompt: string;
   setVoicePrompt: Dispatch<SetStateAction<string>>;
   setAudioDuration: Dispatch<SetStateAction<number>>;
-  finalTypes: { voiceId: any; voiceName: any; gender: string; voiceType: any; language: any }[];
-  setFinalTypes: Dispatch<SetStateAction<any>>
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  finalTypes: { voiceId: string; voiceName: any; gender: string; voiceType: any; language: any }[];
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  setFinalTypes: Dispatch<SetStateAction<any>>;
+ 
 }
 
 export interface GenerateThumbnailProps {

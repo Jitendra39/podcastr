@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react'
-import { EmblaOptionsType, EmblaCarouselType } from 'embla-carousel'
+import { EmblaCarouselType } from 'embla-carousel'
 import Autoplay from 'embla-carousel-autoplay' 
 import useEmblaCarousel from 'embla-carousel-react'
 import { CarouselProps } from '@/types'
@@ -30,14 +30,17 @@ const EmblaCarousel = ({ fansLikeDetail }: CarouselProps) => {
     onNavButtonClick
   )
 
-  const slides = fansLikeDetail && fansLikeDetail?.filter((item: any) => item.totalPodcasts > 0)
+  // const slides = fansLikeDetail && fansLikeDetail?.filter((item: any) => item.totalPodcasts > 0)
+  const slides = fansLikeDetail && fansLikeDetail?.filter((item: { totalPodcasts: number }) => item.totalPodcasts > 0)
+
 
   if(!slides) return <LoaderSpinner />
 
   return (
     <section className="flex w-full flex-col gap-4 overflow-hidden" ref={emblaRef}>
       <div className="flex">
-        {slides.slice(0, 5).map((item) => (
+        {/* {slides.slice(0, 5).map((item) => ( */}
+        {slides.slice(0, 5).map((item: { _id: string; podcast: { podcastId: string; podcastTitle: string }[]; imageUrl: string; name: string }) => (
           <figure
             key={item._id}
             className="carousel_box"

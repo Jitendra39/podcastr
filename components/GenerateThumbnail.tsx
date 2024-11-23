@@ -40,6 +40,7 @@ const GenerateThumbnail = ({
         type: "image/png",
       });
       const uploaded = await startUpload([file]);
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const storageId = (uploaded[0].response as any).storageId;
       setImageStorageId(storageId);
       const imageUrl = await getImageUrl({ storageId });
@@ -72,7 +73,7 @@ const GenerateThumbnail = ({
       setIsImageLoading(false);
     }
   };
-
+  
   const uploadImage = async (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
     try {
@@ -204,78 +205,4 @@ export default GenerateThumbnail;
 
 
 
-
-
-// 'use client'
-
-// import React, { useState } from 'react'
-// import { Button } from './ui/button'
-// import { cn } from '@/lib/utils'
-// import { Label } from './ui/label'
-// import { Textarea } from './ui/textarea'
-// import { GenerateThumbnailProps } from '@/types'
-
-// function GenerateThumbnail({setImage, setImageStorageId, image, imagePrompt, setImagePrompt}: GenerateThumbnailProps) {
-//   const [isAiThumbnail, setAiThumbnail] = useState(false)
-//   return (
-//     <>
-//     <div className="generate_thumbnail">
-//       <Button
-//         onClick={() => setAiThumbnail(true)}
-//          type='button'
-//          variant="plain"
-//          className={cn('',{'bg-slate-500 text-white-1': isAiThumbnail
-
-//          })}
-//         >
-//      Use AI to generate thumbnail
-//           </Button>
-
-//           <Button
-//             onClick={() => setAiThumbnail(false)}
-//             type='button'
-//             variant="plain"
-//             className={cn('',{'bg-slate-500 text-white-1': !isAiThumbnail
-
-//             })}      >
-//               Upload Custom Image
-//             </Button>
-
-//     </div>
-//     {isAiThumbnail ? (
-//       <div>
-//          <div className="flex flex-col gap-2.5">
-//         <Label className="text-16 font-bold text-white-1">
-//           AI prompt to generate podcast
-//         </Label>
-//         <Textarea
-//           className="input-class font-light focus-visible:ring-offset-orange-1"
-//           placeholder="Provide text to AI to generate audio"
-//           rows={5}
-//           value={voicePrompt}
-//           onChange={(e) => setVoicePrompt(e.target.value)}
-//         />
-//       </div>
-//       <div className="mt-5 w-full max-w-[200px]">
-//         <Button
-//           type="button"
-//           className="text-16 bg-orange-1 font-bold text-white-1 duration-500"
-//           onClick={generatePodcast}
-//         >
-//           {isGenerating ? (
-//             <>
-//               <Loader className="animate-spin" size={20} /> &nbsp; Generating...
-//             </>
-//           ) : (
-//             "Generate Podcast"
-//           )}
-//         </Button>
-//       </div>
-//     ) : (
-      
-//     )}
-//     </>
-//   )
-// }
-
-// export default GenerateThumbnail;
+ 

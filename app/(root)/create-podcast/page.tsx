@@ -5,7 +5,7 @@ import { useMutation } from "convex/react";
 import { Loader } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { set, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { z } from "zod";
 
 import GeneratePodcast from "@/components/GeneratePodcast";
@@ -137,8 +137,9 @@ const CreatePodcast = () => {
   const [imageUrl, setImageUrl] = useState("");
   const createPodcast = useMutation(api.podcast.createPodcast);
   const [voiceType, setVoiceType] = useState<VoiceType | null>();
-  const [finalTypes, setFinalTypes] = useState<{ voiceId: any; voiceName: any; gender: string; voiceType: any; language: any }[]>([]);
+  // const [finalTypes, setFinalTypes] = useState<{ voiceId: any; voiceName: any; gender: string; voiceType: any; language: any }[]>([]);
   const [voiceCategories, setVoiceCategories] = useState<{ voiceId: string; voiceName: string }[]>([]);
+  const [finalTypes, setFinalTypes] = useState<{ voiceId: string; voiceName: string; gender: string; voiceType: string; language: string }[]>([]);
   // const [voiceCategories, setVoiceCategories] = useState();
 
   // const [voiceIdNameMap, setVoiceIdNameMap] = useState<Record<string, string>>({});
@@ -213,8 +214,11 @@ const CreatePodcast = () => {
     const voice = voiceCategories.find((voice) => voice.voiceId === data )
     const gender = voice?.voiceId.includes("A") ? "female" : voice?.voiceId.includes("C") ? "female" : "male";
     const language = languages.find((lan) => lan.code === voiceType)?.language || "";
-    setFinalTypes([...finalTypes, { voiceId: voice?.voiceId, voiceName: voice?.voiceName, gender: gender, voiceType: voiceType, language }]);
-    console.log("finalTypes", finalTypes);
+    // setFinalTypes([...finalTypes, { voiceId: voice?.voiceId, voiceName: voice?.voiceName, gender: gender, voiceType: voiceType, language }]);
+
+    if (voice?.voiceId && voice?.voiceName && voiceType) {
+      setFinalTypes([...finalTypes, { voiceId: voice.voiceId, voiceName: voice.voiceName, gender: gender, voiceType: voiceType, language }]);
+    }
   }
 
   return (
