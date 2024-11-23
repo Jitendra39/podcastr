@@ -58,7 +58,7 @@ npm run dev
 
 
 ```
-Contact
+## Contact
 
 Jitendra - [jeetendrachoudhari213@gmail.com]
 
