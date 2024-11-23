@@ -1,36 +1,64 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Podcastr
+
+![App Screenshot](https://firebasestorage.googleapis.com/v0/b/chat-app-f5d74.appspot.com/o/Screenshot%202024-11-24%20012048.png?alt=media&token=dcebdf32-a084-43de-a712-175b89448d3b)
+
+## Description
+
+Podcastr is a podcast application that allows users to explore, listen, and manage their favorite podcasts. The app is built using modern web technologies to provide a seamless and engaging user experience.
+
+## Features
+
+- Browse and search for podcasts
+- Stream episodes directly in the app
+- Responsive design for mobile and desktop
+
+## Technologies Used
+
+- TypeScript
+- React
+- Next.js
+- CSS
+- Stable Diffusion XL model for image generation
+- RapidAPI's `v3/generate_voice_over_v2` due to low credits of OpenAI
+
+## Live Demo
+
+Check out the live demo of the app [here](https://podcastr-pink-nine.vercel.app/).
 
 ## Getting Started
 
-First, run the development server:
+To get a local copy of the project up and running, follow these simple steps:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+### Prerequisites
+
+Ensure you have the following installed on your machine:
+
+- Node.js
+- npm or yarn
+
+### Installation
+
+1. Clone the repository
+   ```sh
+   git clone https://github.com/Jitendra39/podcastr.git
+   ```sh
+2. Navigate to the project directory
+```sh 
+cd podcastr
+```sh
 ```
+3. Install dependencies
+```sh
+npm install
+```sh
+```
+4. Start the development server
+```sh
+npm run dev
+``sh
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+```
+Contact
+Jitendra - [jeetendrachoudhari213@gmail.com]
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Project Link: https://github.com/Jitendra39/podcastr
