@@ -26,13 +26,13 @@ const retryWithBackoff = async (
 // Define the action to generate audio
 export const generateAudioAction = action({
   args:{
-    input: v.string(),        // `input` should be a string
-    voice: v.string(),        // `voice` should be a string
-    gender: v.string(),       // `gender` should be a string
-    language: v.any(),        // `language` can be any type (string, object, etc.)
-    voiceId: v.any(),         // `voiceId` can be any type (string, number, etc.)
-    voiceName: v.string(),    // `voiceName` should be a string
-    voiceType: v.string(),    // `voiceType` should be a string
+    input: v.string(),         
+    voice: v.string(),      
+    gender: v.string(),     
+    language: v.any(),      
+    voiceId: v.any(),        
+    voiceName: v.string(),    
+    voiceType: v.string(),   
   },
   handler: async (_, { voice, input, gender, voiceId, voiceName, voiceType, language }) => {
     console.log(input, gender, voiceId, voiceName, voiceType, language);
@@ -56,12 +56,12 @@ export const generateAudioAction = action({
         body: JSON.stringify({
           voice_obj: {
             id: 2014,
-            voice_id: voiceId,         // Pass the voiceId from the arguments
-            gender: gender,            // Pass the gender from the arguments
-            language_code: voiceType,  // Pass voiceType
-            language_name: language,   // Pass language
-            voice_name: voiceName,     // Pass voiceName
-            sample_text: input,        // Pass input text
+            voice_id: voiceId,          
+            gender: gender,          
+            language_code: voiceType,  
+            language_name: language,    
+            voice_name: voiceName,    
+            sample_text: input,     
             sample_audio_url: 'https://s3.ap-south-1.amazonaws.com/invideo-uploads-ap-south-1/speechen-US-Neural2-A16831901130600.mp3',
             status: 2,
             rank: 0,
@@ -71,7 +71,7 @@ export const generateAudioAction = action({
           json_data: [
             {
               block_index: 0,
-              text: input, // Convert the input text to speech
+              text: input,  
             },
           ],
         }),
